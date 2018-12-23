@@ -7,16 +7,32 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
-        options: { presets: ["@babel/env"] }
+            test: /\.(js|jsx)$/,
+            exclude: /(node_modules|bower_components)/,
+            loader: "babel-loader",
+            options: { presets: ["@babel/env"] }
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        test: /\.less$/,
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              modules: true,
+              localIdentName: "[local]___[hash:base64:5]"
+            }
+          },
+          {
+            loader: "less-loader"
+          }
+        ]
       }
     ]
+// Rest of your webpack.config.js
   },
   resolve: { extensions: ["*", ".js", ".jsx"] },
   output: {
