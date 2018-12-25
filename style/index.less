@@ -1,6 +1,65 @@
 @nice-blue: #5B83AD;
 @light-blue: @nice-blue + #111;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  display: grid;
+  background-color: #5B83AD;
+  grid-template-areas: 
+  'header header header header header header' 
+  'middle middle middle middle middle middle' 
+  'footer footer footer footer footer footer';
+}
 
 .header {
-  color: @light-blue;
+  grid-area: header;
+  background-color: #111111;
+  color: aliceblue;
+}
+
+
+.article {
+  grid-area: middle;
+  text-align: left;
+  padding: 16px;
+  border-bottom: 1px double #f1f1f1;
+  width: 100%;
+
+  .__title {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+  }
+
+  .__image {
+    max-width: 100%;
+    display: block;
+  }
+
+  .__description {
+    font-style: italic;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 300;
+  }
+
+  .__author {
+    text-align: right;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 300;
+  }
+}
+
+.footer {
+  grid-area: footer;
+  color: brown;
 }
